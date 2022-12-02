@@ -3,6 +3,6 @@ module com.example.rentaldb {
     requires javafx.fxml;
             
                             
-    opens com.example.rentaldb to javafx.fxml;
-    exports com.example.rentaldb;
+    opens com.rentaldb.hello to javafx.fxml;
+    exports com.rentaldb.hello;
 }

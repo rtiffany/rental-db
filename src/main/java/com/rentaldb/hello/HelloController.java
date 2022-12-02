@@ -1,4 +1,4 @@
-package com.example.rentaldb;
+package com.rentaldb.hello;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
