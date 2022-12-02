@@ -1,8 +1,10 @@
-module com.example.rentaldb {
+module com.rentaldb {
     requires javafx.controls;
     requires javafx.fxml;
             
                             
-    opens com.rentaldb.hello to javafx.fxml;
-    exports com.rentaldb.hello;
+    opens com.rentaldb.mainApp to javafx.fxml;
+    exports com.rentaldb.mainApp;
+    exports com.rentaldb.controller;
+    opens com.rentaldb.controller to javafx.fxml;
 }
