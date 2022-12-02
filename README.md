@@ -44,3 +44,11 @@ docker run \
 login locally
 `mysql -P 3306 --protocol=tcp -u root -p`
 
+phpMyAdmin
+
+`docker pull phpmyadmin/phpmyadmin:latest`
+
+`docker run --name rentaldb-phpmyadmin -d --link rentaldb-maria:db -p 80:80 phpmyadmin/phpmyadmin`
+
+
+
