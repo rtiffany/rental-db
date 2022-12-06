@@ -27,7 +27,7 @@ Pull docker image
 
 `docker pull mariadb`
 
-Create docker container (todo: docker-compose .yaml)
+Create docker container
 
 ```
 docker run \
