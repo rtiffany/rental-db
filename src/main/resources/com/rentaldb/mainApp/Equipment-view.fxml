@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EquipmentController">
    <children>
       <VBox prefHeight="600.0" prefWidth="800.0">
          <children>
             <HBox prefHeight="75.0" prefWidth="800.0">
                <children>
-                  <Button mnemonicParsing="false" text="Equipment Sales" />
-                  <Button mnemonicParsing="false" text="Employees" />
+                  <Button mnemonicParsing="false" onAction="#onEquipmentSalesButtonClick" text="Equipment Sales" />
+                  <Button mnemonicParsing="false" onAction="#onEmployeesButtonClick" text="Employees" />
                </children>
             </HBox>
             <TableView prefHeight="453.0" prefWidth="800.0">
@@ -29,9 +29,9 @@
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" text="Edit" />
-                  <Button mnemonicParsing="false" text="Check In/Check Out" />
+                  <Button mnemonicParsing="false" onAction="#onEquipmentAddButtonClick" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#onEquipmentEditButtonClick" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#onEquipmentCheckInOutButtonClick" text="Check In/Check Out" />
                </children>
             </HBox>
          </children>

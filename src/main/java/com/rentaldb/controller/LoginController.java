@@ -12,17 +12,23 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
+
+    public LoginController() {
+
+    }
+
     @FXML
     private Button loginButton;
 
     @FXML
-    protected void onHelloButtonClick(ActionEvent event) throws IOException {
+    protected void onLoginButtonClick(ActionEvent event) throws IOException {
         //loginButton.setText("click");
         System.out.println("test");
-        Parent loginParent = FXMLLoader.load(rentaldb.class.getResource("Equipment-view.fxml"));
-        Scene testScene = new Scene(loginParent);
+        Parent windowParent = FXMLLoader.load(rentaldb.class.getResource("Equipment-view.fxml"));
+        Scene equipmentScene = new Scene(windowParent);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(testScene);
+        window.setTitle("Equipment Sales");
+        window.setScene(equipmentScene);
     }
 }

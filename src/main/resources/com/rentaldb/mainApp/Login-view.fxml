@@ -36,7 +36,7 @@
                   <Label text="Password" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Button fx:id="loginButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onHelloButtonClick" text="Login" />
+            <Button fx:id="loginButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Login" />
          </children>
          <padding>
             <Insets left="20.0" right="20.0" />
