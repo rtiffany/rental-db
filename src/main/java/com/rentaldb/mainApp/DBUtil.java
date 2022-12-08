@@ -11,8 +11,14 @@ public class DBUtil {
     private String DATABASE_USERNAME;
     private String DATABASE_PASSWORD;
 
-    public DBUtil(String url, String username, String password) {
+    public DBUtil(String username, String password, String url) {
         this.DATABASE_URL = url;
+        this.DATABASE_USERNAME = username;
+        this.DATABASE_PASSWORD = password;
+    }
+
+    public DBUtil(String username, String password) {
+        this.DATABASE_URL = "45.76.5.38";
         this.DATABASE_USERNAME = username;
         this.DATABASE_PASSWORD = password;
     }

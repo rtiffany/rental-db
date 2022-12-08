@@ -32,8 +32,8 @@
                <children>
                   <TextField alignment="TOP_LEFT" prefHeight="24.0" prefWidth="276.0" GridPane.columnIndex="1" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Username" />
-                  <Label text="Password" GridPane.rowIndex="1" />
+                  <Label fx:id="user" text="Username" />
+                  <Label fx:id="pass" text="Password" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Button fx:id="loginButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Login" />
