@@ -7,27 +7,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EmployeeController">
+<AnchorPane prefHeight="600.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EmployeeController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="800.0">
+      <VBox prefHeight="600.0" prefWidth="957.0">
          <children>
-            <HBox prefHeight="75.0" prefWidth="800.0">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="800.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onEquipmentSalesButtonClick" text="Equipment Sales" />
                   <Button mnemonicParsing="false" onAction="#onEmployeesButtonClick" text="Employees" />
                </children>
             </HBox>
-            <TableView prefHeight="453.0" prefWidth="800.0">
+            <TableView prefHeight="444.0" prefWidth="910.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="id" />
-                <TableColumn prefWidth="75.0" text="make" />
-                  <TableColumn prefWidth="75.0" text="year" />
-                  <TableColumn prefWidth="75.0" text="cost" />
-                  <TableColumn prefWidth="75.0" text="available" />
-                  <TableColumn prefWidth="112.0" text="totalHours" />
+                <TableColumn prefWidth="84.0" text="ssn" />
+                <TableColumn prefWidth="73.0" text="id" />
+                  <TableColumn prefWidth="102.0" text="fname" />
+                  <TableColumn prefWidth="133.0" text="lname" />
+                  <TableColumn prefWidth="134.0" text="license_num" />
+                  <TableColumn prefWidth="112.0" text="dob" />
+                  <TableColumn prefWidth="150.0" text="hire_date" />
+                  <TableColumn prefWidth="168.0" text="dot_status" />
               </columns>
             </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onEmployeeAddButtonClick" text="Add" />
                   <Button mnemonicParsing="false" onAction="#onEmployeeEditButtonClick" text="Edit" />

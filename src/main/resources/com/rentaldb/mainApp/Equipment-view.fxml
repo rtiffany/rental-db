@@ -11,7 +11,7 @@
    <children>
       <VBox prefHeight="600.0" prefWidth="800.0">
          <children>
-            <HBox prefHeight="75.0" prefWidth="800.0">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="800.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onEquipmentSalesButtonClick" text="Equipment Sales" />
                   <Button mnemonicParsing="false" onAction="#onEmployeesButtonClick" text="Employees" />
@@ -19,15 +19,15 @@
             </HBox>
             <TableView prefHeight="453.0" prefWidth="800.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="id" />
-                <TableColumn prefWidth="75.0" text="make" />
-                  <TableColumn prefWidth="75.0" text="year" />
-                  <TableColumn prefWidth="75.0" text="cost" />
-                  <TableColumn prefWidth="75.0" text="available" />
-                  <TableColumn prefWidth="112.0" text="totalHours" />
+                <TableColumn prefWidth="105.0" text="id" />
+                <TableColumn prefWidth="199.0" text="make" />
+                  <TableColumn prefWidth="109.0" text="year" />
+                  <TableColumn prefWidth="165.0" text="cost" />
+                  <TableColumn prefWidth="113.0" text="available" />
+                  <TableColumn prefWidth="108.0" text="totalHours" />
               </columns>
             </TableView>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onEquipmentAddButtonClick" text="Add" />
                   <Button mnemonicParsing="false" onAction="#onEquipmentEditButtonClick" text="Edit" />
