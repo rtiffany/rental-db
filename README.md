@@ -14,7 +14,7 @@ A JavaFX based database front end.
 Connect remotely
 
 ````shell
-mysql -h 45.76.5.38 -P 3306 --protocol=tcp -u rentaldb -p
+mysql -h <ip> -P 3306 --protocol=tcp -u rentaldb -p
 ````
 
 ### Cloud Debian 11 Database Server
