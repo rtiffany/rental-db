@@ -59,7 +59,7 @@ public class LoginController {
             window.setTitle("Welcome");
             window.setScene(databaseScene);
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             loginError.setText(e.getMessage());
         }
     }
