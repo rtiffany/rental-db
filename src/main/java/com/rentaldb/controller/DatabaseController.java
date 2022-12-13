@@ -43,12 +43,4 @@ public class DatabaseController {
         //Set items to the equipmentTable
         equipmentTable.setItems(empData);
     }
-
-
-
-
-
-
-
-
 }

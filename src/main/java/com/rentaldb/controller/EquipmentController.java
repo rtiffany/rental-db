@@ -1,57 +1,51 @@
 package com.rentaldb.controller;
 
-import com.rentaldb.mainApp.rentaldb;
-import javafx.event.ActionEvent;
+import com.rentaldb.table.Equipment;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
-import java.io.IOException;
+import java.nio.Buffer;
 
 public class EquipmentController {
 
-    public EquipmentController() {
+    @FXML
+    private Button showAllButton;
+    @FXML
+    private Button showAvailableButton;
 
-    }
+    // Table
+    @FXML
+    private TableView equipmentTable;
+    @FXML
+    private TableColumn<Equipment, Integer> equipIdCol;
+    @FXML
+    private TableColumn<Equipment, Boolean> equipIsAvailableCol;
+    @FXML
+    private TableColumn<Equipment, String> equipMakeCol;
+    @FXML
+    private TableColumn<Equipment, String> equipModelCol;
+    @FXML
+    private TableColumn<Equipment, Double> equipRateCol;
 
     @FXML
-    void onEmployeesButtonClick(ActionEvent event) throws IOException {
-        System.out.println("test");
-        Parent windowParent = FXMLLoader.load(rentaldb.class.getResource("Employee-view.fxml"));
-        Scene employeeScene = new Scene(windowParent);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Employees");
-        window.setScene(employeeScene);
+    private void initialize() {
+        equipIdCol.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        equipRateCol.setCellValueFactory(cellData -> cellData.getValue().rateProperty().asObject());
+        equipModelCol.setCellValueFactory(cellData -> cellData.getValue().modelProperty());
+        equipMakeCol.setCellValueFactory(cellData -> cellData.getValue().makeProperty());
+        equipIsAvailableCol.setCellValueFactory(cellData -> cellData.getValue().isAvailableProperty());
     }
 
-    @FXML
-    void onEquipmentAddButtonClick(ActionEvent event) {
-
+    private void populateEquipment(Equipment equip) throws ClassNotFoundException{
+        //Declare and ObservableList for table view
+        ObservableList<Equipment> empData = FXCollections.observableArrayList();
+        //Add equipment to the ObservableList
+        empData.add(equip);
+        //Set items to the equipmentTable
+        equipmentTable.setItems(empData);
     }
-
-    @FXML
-    void onEquipmentCheckInOutButtonClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onEquipmentEditButtonClick(ActionEvent event) throws IOException {
-
-    }
-
-    @FXML
-    void onEquipmentSalesButtonClick(ActionEvent event) throws IOException {
-        System.out.println("test");
-        Parent windowParent = FXMLLoader.load(rentaldb.class.getResource("Equipment-view.fxml"));
-        Scene equipmentScene = new Scene(windowParent);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setTitle("Equipment Sales");
-        window.setScene(equipmentScene);
-    }
-
 }

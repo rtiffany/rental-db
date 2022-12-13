@@ -1,41 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="957.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EmployeeController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="770.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EmployeeController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="957.0">
-         <children>
-            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="800.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#onEquipmentSalesButtonClick" text="Equipment Sales" />
-                  <Button mnemonicParsing="false" onAction="#onEmployeesButtonClick" text="Employees" />
-               </children>
-            </HBox>
-            <TableView prefHeight="444.0" prefWidth="910.0">
-              <columns>
-                <TableColumn prefWidth="84.0" text="ssn" />
-                <TableColumn prefWidth="73.0" text="id" />
-                  <TableColumn prefWidth="102.0" text="fname" />
-                  <TableColumn prefWidth="133.0" text="lname" />
-                  <TableColumn prefWidth="134.0" text="license_num" />
-                  <TableColumn prefWidth="112.0" text="dob" />
-                  <TableColumn prefWidth="150.0" text="hire_date" />
-                  <TableColumn prefWidth="168.0" text="dot_status" />
-              </columns>
-            </TableView>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#onEmployeeAddButtonClick" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#onEmployeeEditButtonClick" text="Edit" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+      <TableView layoutY="265.0" prefHeight="505.0" prefWidth="1200.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
