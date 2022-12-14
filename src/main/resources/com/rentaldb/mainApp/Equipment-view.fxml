@@ -6,8 +6,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,20 +15,20 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="771.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EquipmentController">
    <children>
-      <TableView fx:id="equipmentTable" layoutX="430.0" prefHeight="671.0" prefWidth="770.0">
+      <TableView fx:id="equipmentTable" layoutX="430.0" prefHeight="771.0" prefWidth="770.0">
          <columns>
             <TableColumn fx:id="equipIdCol" prefWidth="81.0" text="id" />
             <TableColumn fx:id="equipRateCol" prefWidth="159.0" text="rate" />
             <TableColumn fx:id="equipModelCol" prefWidth="205.0" text="model" />
             <TableColumn fx:id="equipMakeCol" prefWidth="172.0" text="make" />
-            <TableColumn fx:id="equipIsAvailableCol" prefWidth="152.0" text="isAvailable" />
+            <TableColumn fx:id="equipIsAvailCol" prefWidth="152.0" text="isAvailable" />
          </columns>
       </TableView>
       <VBox prefHeight="771.0" prefWidth="428.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="22.0">
                <children>
-                  <Button fx:id="showAllButton" mnemonicParsing="false" text="Show All" />
+                  <Button fx:id="showAllButton" mnemonicParsing="false" onAction="#showAllEquipment" text="Show All" />
                   <Button fx:id="showAvailableButton" mnemonicParsing="false" text="Show Available" />
                   <Button fx:id="showUnavailableButton" mnemonicParsing="false" text="Show Unavailable" />
                </children>
@@ -44,8 +42,8 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
                   <Label text="Search:" />
-                  <TextField prefHeight="24.0" prefWidth="195.0" />
-                  <Button mnemonicParsing="false" text="Go" />
+                  <TextField fx:id="equipmentSearchField" prefHeight="24.0" prefWidth="195.0" />
+                  <Button fx:id="equipmentSearchButton" mnemonicParsing="false" text="Go" />
                </children>
             </HBox>
             <GridPane alignment="CENTER">
@@ -66,11 +64,11 @@
                   <Label text="model" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <Label text="make" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                   <Label text="isAvailable" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="equipmentIdField" GridPane.columnIndex="1" />
+                  <TextField fx:id="equipmentRateField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="equipmentModelField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="equipmentMakeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="equipmentIsAvailField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" />
@@ -78,10 +76,5 @@
             </GridPane>
          </children>
       </VBox>
-      <ImageView fitHeight="100.0" fitWidth="1200.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@databaseFooter.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
