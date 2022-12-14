@@ -1,9 +1,6 @@
 package com.rentaldb.mainApp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBUtil {
 
@@ -20,7 +17,7 @@ public class DBUtil {
     }
 
     public void set(String hostname, String username, String password) {
-        this.DATABASE_HOSTNAME = "jdbc:mysql://" + hostname;
+        this.DATABASE_HOSTNAME = "jdbc:mysql://" + hostname + "/rentaldb";
         this.DATABASE_USERNAME = username;
         this.DATABASE_PASSWORD = password;
     }
@@ -29,16 +26,38 @@ public class DBUtil {
         connection = DriverManager.getConnection(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
     }
 
+    // Execute Database Query
+    public static ResultSet dbExecuteQuery(String queryStmt) throws SQLException, ClassNotFoundException {
+        Statement stmt = null;
+        ResultSet resultSet = null;
 
-    public void test() {
-        String query = "SELECT fname, lname FROM Employee";
         try {
-            Connection connection = DriverManager.getConnection(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
-            Statement statement = connection.createStatement();
+            System.out.println("select statement: " + queryStmt + "\n");
+            stmt = connection.createStatement();
+            resultSet = stmt.executeQuery(queryStmt);
         } catch (SQLException e) {
-            //System.out.println(e);
+            System.out.println("sql error: " + e);
+            throw e;
+        } finally {
+            //if (resultSet != null) {
+            //    resultSet.close();
+            //}
+            if (stmt != null) {
+                stmt.close();
+            }
         }
-
+        return resultSet;
     }
 
+    // DB Update/Insert/Delete
+    public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
+        Statement stmt = null;
+        try {
+            stmt = connection.createStatement();
+            stmt.executeUpdate(sqlStmt);
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e);
+            throw e;
+        }
+    }
 }
