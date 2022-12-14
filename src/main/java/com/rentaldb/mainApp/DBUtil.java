@@ -1,6 +1,9 @@
 package com.rentaldb.mainApp;
 
 import java.sql.*;
+import javax.sql.rowset.BaseRowSet;
+import javax.sql.rowset.CachedRowSet;
+//import com.sun.rowset.CachedRowSetImpl;
 
 public class DBUtil {
 
@@ -30,7 +33,7 @@ public class DBUtil {
     public static ResultSet dbExecuteQuery(String queryStmt) throws SQLException, ClassNotFoundException {
         Statement stmt = null;
         ResultSet resultSet = null;
-
+        CachedRowSet crs = null;
         try {
             System.out.println("select statement: " + queryStmt + "\n");
             stmt = connection.createStatement();
