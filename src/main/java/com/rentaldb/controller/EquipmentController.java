@@ -67,11 +67,22 @@ public class EquipmentController {
         equipModelCol.setCellValueFactory(cellData -> cellData.getValue().modelProperty());
         equipMakeCol.setCellValueFactory(cellData -> cellData.getValue().makeProperty());
         equipIsAvailCol.setCellValueFactory(cellData -> cellData.getValue().isAvailableProperty());
+        // todo: populate table on login
     }
 
     @FXML
     private void searchEquipment (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
-
+        try {
+            // Get equipment info
+            Equipment equipment = EquipmentDAO.searchEquipment(equipmentSearchField.getText());
+            // Populate Equipment on TableView
+            // Todo: populate on TextFields
+            populateAndShowEquipment(equipment);
+        } catch (SQLException e) {
+            // e.printStackTrace();
+            System.out.println("controller searchEqipment sql error: ");
+            throw e;
+        }
     }
 
     @FXML
@@ -92,6 +103,17 @@ public class EquipmentController {
         equipData.add(equip);
         //Set items to the equipmentTable
         equipmentTable.setItems(equipData);
+    }
+
+    // Shows a single employee
+    @FXML
+    private void populateAndShowEquipment(Equipment equipment) throws ClassNotFoundException {
+        if (equipment != null) {
+            populateEquipment(equipment);
+        } else {
+            // Todo: add Label in Equipment-view.fxml
+            System.out.println("This Employee Does not Exist");
+        }
     }
 
     private void populateEquipments (ObservableList<Equipment> equipData) throws ClassNotFoundException {
