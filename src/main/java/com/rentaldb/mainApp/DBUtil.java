@@ -1,9 +1,7 @@
 package com.rentaldb.mainApp;
 
 import java.sql.*;
-import javax.sql.rowset.BaseRowSet;
-import javax.sql.rowset.CachedRowSet;
-//import com.sun.rowset.CachedRowSetImpl;
+import javax.sql.rowset.*;
 
 public class DBUtil {
 
@@ -38,6 +36,8 @@ public class DBUtil {
             System.out.println("select statement: " + queryStmt + "\n");
             stmt = connection.createStatement();
             resultSet = stmt.executeQuery(queryStmt);
+            crs = RowSetProvider.newFactory().createCachedRowSet();
+            crs.populate(resultSet);
         } catch (SQLException e) {
             System.out.println("sql error: " + e);
             throw e;
@@ -49,7 +49,7 @@ public class DBUtil {
                 stmt.close();
             }
         }
-        return resultSet;
+        return crs;
     }
 
     // DB Update/Insert/Delete
