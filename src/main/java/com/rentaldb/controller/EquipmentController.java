@@ -46,6 +46,15 @@ public class EquipmentController {
     @FXML
     private Button showUnavailableButton;
 
+    @FXML
+    private Button insertEquipmentButton;
+
+    @FXML
+    private Button updateEquipmentButton;
+
+    @FXML
+    private Button deleteEquipmentButton;
+
     // Table
     @FXML
     private TableView equipmentTable;
@@ -118,5 +127,14 @@ public class EquipmentController {
 
     private void populateEquipments (ObservableList<Equipment> equipData) throws ClassNotFoundException {
         equipmentTable.setItems(equipData);
+    }
+
+    @FXML
+    private void insertEquipment(ActionEvent event) throws SQLException, ClassNotFoundException {
+        Double rate = Double.valueOf(equipmentRateField.getText());
+        String model = equipmentModelField.getText();
+        String make = equipmentMakeField.getText();
+        Boolean isAvailable = true;
+        EquipmentDAO.insertEquipment(rate, model, make, isAvailable);
     }
 }

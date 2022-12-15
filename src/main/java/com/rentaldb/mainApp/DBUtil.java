@@ -61,6 +61,10 @@ public class DBUtil {
         } catch (SQLException e) {
             System.out.println("sql error: " + e);
             throw e;
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
         }
     }
 }

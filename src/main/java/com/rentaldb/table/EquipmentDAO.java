@@ -3,9 +3,11 @@ package com.rentaldb.table;
 import com.rentaldb.mainApp.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class EquipmentDAO {
 
@@ -65,6 +67,25 @@ public class EquipmentDAO {
             equipList.add(equipment);
         }
         return equipList;
+    }
+
+
+    public static void insertEquipment (Double rate, String model, String make, Boolean isAvailable) throws SQLException, ClassNotFoundException {
+        String insertStmt = "INSERT INTO Equipment\n" +
+                "(id, rate, model, make, isAvailable)\n" +
+                "VALUES\n" +
+                "(NULL, " + rate + ", '" + model + "', '" + make + "', " + isAvailable + ");";
+        // Execute INSERT Operation
+        try {
+            DBUtil.dbExecuteUpdate(insertStmt);
+        } catch (SQLException e) {
+            System.out.println("insertEquipment sql error: " + e);
+            throw e;
+        }
+    }
+
+    public static void updateEquipment (Integer id, Double rate, String model, String make, Boolean isAvailable) throws SQLException, ClassNotFoundException {
+
     }
 
 
