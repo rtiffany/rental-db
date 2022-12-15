@@ -15,7 +15,7 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="771.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentaldb.controller.EquipmentController">
    <children>
-      <TableView fx:id="equipmentTable" layoutX="430.0" prefHeight="771.0" prefWidth="770.0">
+      <TableView fx:id="equipmentTable" layoutX="430.0" prefHeight="771.0" prefWidth="771.0">
          <columns>
             <TableColumn fx:id="equipIdCol" prefWidth="81.0" text="id" />
             <TableColumn fx:id="equipRateCol" prefWidth="159.0" text="rate" />
@@ -41,7 +41,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Label text="Search:" />
+                  <Label text="Search by id:" />
                   <TextField fx:id="equipmentSearchField" prefHeight="24.0" prefWidth="195.0" />
                   <Button fx:id="equipmentSearchButton" mnemonicParsing="false" onAction="#searchEquipment" text="Go" />
                </children>
@@ -74,6 +74,13 @@
                   <Insets left="20.0" right="20.0" />
                </padding>
             </GridPane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#insertEquipment" text="Insert" />
+                  <Button mnemonicParsing="false" text="Update" />
+                  <Button mnemonicParsing="false" text="Delete" textFill="RED" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>
