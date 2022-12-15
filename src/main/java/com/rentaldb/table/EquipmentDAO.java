@@ -17,7 +17,6 @@ public class EquipmentDAO {
 
         try {
             ResultSet rsEquip = DBUtil.dbExecuteQuery(selectStmt);
-            //System.out.println(rsEquip.getString(2));
             Equipment equipment = getEquipmentFromResultSet(rsEquip);
             return equipment;
         } catch (SQLException e) {
@@ -54,6 +53,34 @@ public class EquipmentDAO {
             throw e;
         }
     }
+
+    public static ObservableList<Equipment> showAvailableEquipment() throws SQLException, ClassNotFoundException {
+        String selectStmt = "SELECT * FROM Equipment WHERE isAvailable=1";
+
+        try {
+            ResultSet rsEquip = DBUtil.dbExecuteQuery(selectStmt);
+            ObservableList<Equipment> equipList = getEquipmentList(rsEquip);
+            return equipList;
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e);
+            throw e;
+        }
+    }
+
+    public static ObservableList<Equipment> showUnavailableEquipment() throws SQLException, ClassNotFoundException {
+        String selectStmt = "SELECT * FROM Equipment WHERE isAvailable=0";
+
+        try {
+            ResultSet rsEquip = DBUtil.dbExecuteQuery(selectStmt);
+            ObservableList<Equipment> equipList = getEquipmentList(rsEquip);
+            return equipList;
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e);
+            throw e;
+        }
+    }
+
+
     // Select * from equipment operation
     private static ObservableList<Equipment> getEquipmentList(ResultSet rs) throws SQLException, ClassNotFoundException {
         ObservableList<Equipment> equipList = FXCollections.observableArrayList();
@@ -85,7 +112,27 @@ public class EquipmentDAO {
     }
 
     public static void updateEquipment (Integer id, Double rate, String model, String make, Boolean isAvailable) throws SQLException, ClassNotFoundException {
+        String updateStmt = "UPDATE Equipment set rate = " + rate + ", model = '" + model + "', make = '" + make + "', isAvailable=" + isAvailable +
+                " WHERE id=" + id + ";";
+        // Do DB operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.println("update equipment sql error: " + e);
+            throw e;
+        }
+    }
 
+    public static void deleteEquipmentById (int equipmentId) throws SQLException, ClassNotFoundException {
+        // Delete Statement
+        String deleteStmt = "DELETE FROM Equipment WHERE id=" + equipmentId + ";";
+        // Execute Statement
+        try {
+            DBUtil.dbExecuteUpdate(deleteStmt);
+        } catch (SQLException e) {
+            System.out.println("deleteEquipmentById sql error: " + e);
+            throw e;
+        }
     }
 
 

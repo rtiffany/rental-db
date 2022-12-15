@@ -29,8 +29,8 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="22.0">
                <children>
                   <Button fx:id="showAllButton" mnemonicParsing="false" onAction="#showAllEquipment" text="Show All" />
-                  <Button fx:id="showAvailableButton" mnemonicParsing="false" text="Show Available" />
-                  <Button fx:id="showUnavailableButton" mnemonicParsing="false" text="Show Unavailable" />
+                  <Button fx:id="showAvailableButton" mnemonicParsing="false" onAction="#showAvailableEquipment" text="Show Available" />
+                  <Button fx:id="showUnavailableButton" mnemonicParsing="false" onAction="#showUnavailableEquipment" text="Show Unavailable" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -77,8 +77,8 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#insertEquipment" text="Insert" />
-                  <Button mnemonicParsing="false" text="Update" />
-                  <Button mnemonicParsing="false" text="Delete" textFill="RED" />
+                  <Button mnemonicParsing="false" onAction="#updateEquipment" text="Update" />
+                  <Button mnemonicParsing="false" onAction="#deleteEquipmentById" text="Delete by id" textFill="RED" />
                </children>
             </HBox>
          </children>

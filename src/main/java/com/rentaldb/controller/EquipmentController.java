@@ -1,5 +1,6 @@
 package com.rentaldb.controller;
 
+import com.rentaldb.table.EmployeeDAO;
 import com.rentaldb.table.Equipment;
 
 import com.rentaldb.table.EquipmentDAO;
@@ -105,6 +106,28 @@ public class EquipmentController {
         }
     }
 
+    @FXML
+    private void showAvailableEquipment (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            ObservableList<Equipment> equipData = EquipmentDAO.showAvailableEquipment();
+            populateEquipments(equipData);
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e);
+            throw e;
+        }
+    }
+
+    @FXML
+    private void showUnavailableEquipment (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            ObservableList<Equipment> equipData = EquipmentDAO.showUnavailableEquipment();
+            populateEquipments(equipData);
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e);
+            throw e;
+        }
+    }
+
     private void populateEquipment(Equipment equip) throws ClassNotFoundException{
         //Declare and ObservableList for table view
         ObservableList<Equipment> equipData = FXCollections.observableArrayList();
@@ -136,5 +159,21 @@ public class EquipmentController {
         String make = equipmentMakeField.getText();
         Boolean isAvailable = true;
         EquipmentDAO.insertEquipment(rate, model, make, isAvailable);
+    }
+
+    @FXML
+    private void updateEquipment (ActionEvent event) throws SQLException, ClassNotFoundException {
+        int id = Integer.parseInt(equipmentIdField.getText());
+        Double rate = Double.valueOf(equipmentRateField.getText());
+        String model = equipmentModelField.getText();
+        String make = equipmentMakeField.getText();
+        Boolean isAvailable = Boolean.valueOf(equipmentIsAvailField.getText());
+        EquipmentDAO.updateEquipment(id, rate, model, make, isAvailable);
+    }
+
+    @FXML
+    private void deleteEquipmentById (ActionEvent event) throws SQLException, ClassNotFoundException {
+        int id = Integer.parseInt(equipmentIdField.getText());
+        EquipmentDAO.deleteEquipmentById(id);
     }
 }
