@@ -43,7 +43,7 @@
                <children>
                   <Label text="Search:" />
                   <TextField fx:id="equipmentSearchField" prefHeight="24.0" prefWidth="195.0" />
-                  <Button fx:id="equipmentSearchButton" mnemonicParsing="false" text="Go" />
+                  <Button fx:id="equipmentSearchButton" mnemonicParsing="false" onAction="#searchEquipment" text="Go" />
                </children>
             </HBox>
             <GridPane alignment="CENTER">

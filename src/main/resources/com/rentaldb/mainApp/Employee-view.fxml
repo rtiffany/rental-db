@@ -30,8 +30,6 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="22.0">
                <children>
                   <Button fx:id="showAllButton" mnemonicParsing="false" text="Show All" />
-                  <Button fx:id="showAvailableButton" mnemonicParsing="false" text="Show Available" />
-                  <Button fx:id="showUnavailableButton" mnemonicParsing="false" text="Show Unavailable" />
                </children>
                <opaqueInsets>
                   <Insets />
