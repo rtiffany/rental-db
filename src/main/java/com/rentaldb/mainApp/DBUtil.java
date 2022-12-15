@@ -42,9 +42,9 @@ public class DBUtil {
             System.out.println("sql error: " + e);
             throw e;
         } finally {
-            //if (resultSet != null) {
-            //    resultSet.close();
-            //}
+            if (resultSet != null) {
+                resultSet.close();
+            }
             if (stmt != null) {
                 stmt.close();
             }

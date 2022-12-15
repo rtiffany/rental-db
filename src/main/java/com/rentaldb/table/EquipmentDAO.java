@@ -9,22 +9,27 @@ import java.sql.SQLException;
 
 public class EquipmentDAO {
 
+    // Searches a piece of equipment by ID
     public static Equipment searchEquipment (String equipID) throws SQLException, ClassNotFoundException {
-        String selectStmt = "SELECT * FROM Equipment where id="+equipID;
+        String selectStmt = "SELECT * FROM Equipment WHERE id="+equipID;
 
         try {
             ResultSet rsEquip = DBUtil.dbExecuteQuery(selectStmt);
+            //System.out.println(rsEquip.getString(2));
             Equipment equipment = getEquipmentFromResultSet(rsEquip);
             return equipment;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e);
+            System.out.println("EquipmentDAO searchEquipment sql error: " + e);
             throw e;
         }
     }
 
+    //
     private static Equipment getEquipmentFromResultSet(ResultSet rs) throws SQLException {
-        Equipment equipment = null;
+        // Equipment equipment = null;
+        Equipment equipment = new Equipment();
         if (rs.next()) {
+            //asdf
             equipment.setId(rs.getInt("id"));
             equipment.setRate(rs.getDouble("rate"));
             equipment.setModel(rs.getString("model"));
