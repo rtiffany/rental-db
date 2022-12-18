@@ -6,12 +6,16 @@
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Equipment">
-      <content>
-        <fx:include fx:id="equipmentTab" source="Equipment-view.fxml" />
-      </content>
+      <fx:include fx:id="equipmentTab" source="Equipment-view.fxml" />
     </Tab>
     <Tab text="Employee">
       <fx:include fx:id="employeeTab" source="Employee-view.fxml" />
+    </Tab>
+    <Tab text="Customer">
+      <fx:include fx:id="customerTab" source="Customer-view.fxml" />
+    </Tab>
+    <Tab text="Rentals">
+      <fx:include fx:id="rentalsTab" source="Rentals-view.fxml" />
     </Tab>
   </tabs>
 </TabPane>
