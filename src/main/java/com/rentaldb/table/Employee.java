@@ -63,7 +63,7 @@ public class Employee {
     public String getLName() {
         return lname.get();
     }
-    public void setLLame(String lname) {
+    public void setLName(String lname) {
         this.lname.set(lname);
     }
     public StringProperty lnameProperty() {

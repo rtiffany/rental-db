@@ -3,13 +3,47 @@ package com.rentaldb.table;
 import com.rentaldb.mainApp.DBUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class EquipmentDAO {
+
+    //
+    // EquipmentDAO Util Functions
+    //
+
+    private static ObservableList<Equipment> getEquipmentList(ResultSet rs) throws SQLException, ClassNotFoundException {
+        ObservableList<Equipment> equipList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            Equipment equipment = new Equipment();
+            equipment.setId(rs.getInt("id"));
+            equipment.setRate(rs.getDouble("rate"));
+            equipment.setModel(rs.getString("model"));
+            equipment.setMake(rs.getString("make"));
+            equipment.setIsAvailable(rs.getBoolean("isAvailable"));
+            equipList.add(equipment);
+        }
+        return equipList;
+    }
+
+    private static Equipment getEquipmentFromResultSet(ResultSet rs) throws SQLException {
+        Equipment equipment = new Equipment();
+        if (rs.next()) {
+            equipment.setId(rs.getInt("id"));
+            equipment.setRate(rs.getDouble("rate"));
+            equipment.setModel(rs.getString("model"));
+            equipment.setMake(rs.getString("make"));
+            equipment.setIsAvailable(rs.getBoolean("isAvailable"));
+        }
+        return equipment;
+    }
+
+
+    //
+    // View Database Functions
+    //
+
 
     // Searches a piece of equipment by ID
     public static Equipment searchEquipment (String equipID) throws SQLException, ClassNotFoundException {
@@ -23,21 +57,6 @@ public class EquipmentDAO {
             System.out.println("EquipmentDAO searchEquipment sql error: " + e);
             throw e;
         }
-    }
-
-    //
-    private static Equipment getEquipmentFromResultSet(ResultSet rs) throws SQLException {
-        // Equipment equipment = null;
-        Equipment equipment = new Equipment();
-        if (rs.next()) {
-            //asdf
-            equipment.setId(rs.getInt("id"));
-            equipment.setRate(rs.getDouble("rate"));
-            equipment.setModel(rs.getString("model"));
-            equipment.setMake(rs.getString("make"));
-            equipment.setIsAvailable(rs.getBoolean("isAvailable"));
-        }
-        return equipment;
     }
 
     // Show all Equipment
@@ -81,21 +100,10 @@ public class EquipmentDAO {
     }
 
 
-    // Select * from equipment operation
-    private static ObservableList<Equipment> getEquipmentList(ResultSet rs) throws SQLException, ClassNotFoundException {
-        ObservableList<Equipment> equipList = FXCollections.observableArrayList();
-        while (rs.next()) {
-            Equipment equipment = new Equipment();
-            equipment.setId(rs.getInt("id"));
-            equipment.setRate(rs.getDouble("rate"));
-            equipment.setModel(rs.getString("model"));
-            equipment.setMake(rs.getString("make"));
-            equipment.setIsAvailable(rs.getBoolean("isAvailable"));
-            equipList.add(equipment);
-        }
-        return equipList;
-    }
 
+    //
+    // Database Modify
+    //
 
     public static void insertEquipment (Double rate, String model, String make, Boolean isAvailable) throws SQLException, ClassNotFoundException {
         String insertStmt = "INSERT INTO Equipment\n" +
