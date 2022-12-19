@@ -10,20 +10,20 @@ public class Employee {
     private IntegerProperty id;
     private StringProperty fname;
     private StringProperty lname;
-    private IntegerProperty license_num;
+    private StringProperty license_num;
     private SimpleObjectProperty<Date> dob;
     private SimpleObjectProperty<Date> date_of_hire;
-    private StringProperty dot_status;
+    private BooleanProperty dot_status;
 
     public Employee () {
         this.ssn = new SimpleIntegerProperty();
         this.id = new SimpleIntegerProperty();
         this.fname = new SimpleStringProperty();
         this.lname = new SimpleStringProperty();
-        this.license_num = new SimpleIntegerProperty();
+        this.license_num = new SimpleStringProperty();
         this.dob = new SimpleObjectProperty<>();
         this.date_of_hire = new SimpleObjectProperty<>();
-        this.dot_status = new SimpleStringProperty();
+        this.dot_status = new SimpleBooleanProperty();
     }
 
     // ssn
@@ -71,13 +71,13 @@ public class Employee {
     }
 
     // license_num
-    public int getLicenseNum() {
+    public String getLicenseNum() {
         return license_num.get();
     }
-    public void setLicenseNum(int licenseNum) {
+    public void setLicenseNum(String licenseNum) {
         this.license_num.set(licenseNum);
     }
-    public IntegerProperty licenseNumProperty() {
+    public StringProperty licenseNumProperty() {
         return license_num;
     }
 
@@ -104,13 +104,13 @@ public class Employee {
     }
 
     // dot_status
-    public String getDotStatus() {
+    public Boolean getDotStatus() {
         return dot_status.get();
     }
-    public void setDotStatus(String dotStatus) {
+    public void setDotStatus(Boolean dotStatus) {
         this.dot_status.set(dotStatus);
     }
-    public StringProperty dotStatusProperty() {
+    public BooleanProperty dotStatusProperty() {
         return dot_status;
     }
 }

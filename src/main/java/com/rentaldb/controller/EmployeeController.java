@@ -1,5 +1,6 @@
 package com.rentaldb.controller;
 
+import com.rentaldb.table.Employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -8,58 +9,82 @@ import javafx.scene.control.TextField;
 
 public class EmployeeController {
 
-    @FXML
-    private TableColumn<?, ?> employeeDotStatusCol;
+    //
+    // Table
+    //
 
     @FXML
-    private TextField employeeDotStatusField;
+    private TableView employeeTable;
 
     @FXML
-    private TableColumn<?, ?> employeeFnameCol;
+    private TableColumn<Employee, Integer> employeeSSNCol;
 
     @FXML
-    private TextField employeeFnameField;
+    private TableColumn<Employee, Integer> employeeIdCol;
 
     @FXML
-    private TableColumn<?, ?> employeeIdCol;
+    private TableColumn<Employee, String> employeeFnameCol;
 
     @FXML
-    private TextField employeeIdField;
+    private TableColumn<Employee, String> employeeLnameCol;
 
     @FXML
-    private TableColumn<?, ?> employeeLicCol;
+    private TableColumn<Employee, String> employeeLicCol;
 
     @FXML
-    private TextField employeeLicNumField;
+    private TableColumn<Employee, Boolean> employeeDotStatusCol;
 
-    @FXML
-    private TableColumn<?, ?> employeeLnameCol;
 
-    @FXML
-    private TextField employeeLnameField;
-
-    @FXML
-    private TableColumn<?, ?> employeeSSNCol;
-
-    @FXML
-    private TextField employeeSSNField;
-
-    @FXML
-    private Button employeeSearchButton;
+    //
+    // TextFields
+    //
 
     @FXML
     private TextField employeeSearchField;
 
     @FXML
-    private TableView<?> employeeTable;
+    private TextField employeeSSNField;
 
     @FXML
-    private Button showAllButton;
+    private TextField employeeIdField;
 
     @FXML
-    private Button showAvailableButton;
+    private TextField employeeFnameField;
 
     @FXML
-    private Button showUnavailableButton;
+    private TextField employeeLnameField;
+
+    @FXML
+    private TextField employeeLicNumField;
+
+    @FXML
+    private TextField employeeDotStatusField;
+
+    //
+    // Initialize
+    //
+
+    @FXML
+    private void initialize() {
+        employeeSSNCol.setCellValueFactory(cellData -> cellData.getValue().ssnProperty().asObject());
+        employeeIdCol.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        employeeFnameCol.setCellValueFactory(cellData -> cellData.getValue().fnameProperty());
+        employeeLnameCol.setCellValueFactory(cellData -> cellData.getValue().lnameProperty());
+        employeeLicCol.setCellValueFactory(cellData -> cellData.getValue().licenseNumProperty());
+        employeeDotStatusCol.setCellValueFactory(cellData -> cellData.getValue().dotStatusProperty());
+        // todo: populate table on login
+    }
+
+    //
+    // Button functions
+    //
+
+
+
+
+
+
+
+
 
 }
