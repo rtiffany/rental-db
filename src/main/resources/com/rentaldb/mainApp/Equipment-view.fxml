@@ -28,9 +28,9 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="22.0">
                <children>
-                  <Button fx:id="showAllButton" mnemonicParsing="false" onAction="#showAllEquipment" text="Show All" />
-                  <Button fx:id="showAvailableButton" mnemonicParsing="false" onAction="#showAvailableEquipment" text="Show Available" />
-                  <Button fx:id="showUnavailableButton" mnemonicParsing="false" onAction="#showUnavailableEquipment" text="Show Unavailable" />
+                  <Button mnemonicParsing="false" onAction="#showAllEquipment" text="Show All" />
+                  <Button mnemonicParsing="false" onAction="#showAvailableEquipment" text="Show Available" />
+                  <Button mnemonicParsing="false" onAction="#showUnavailableEquipment" text="Show Unavailable" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -43,7 +43,7 @@
                <children>
                   <Label text="Search by id:" />
                   <TextField fx:id="equipmentSearchField" prefHeight="24.0" prefWidth="195.0" />
-                  <Button fx:id="equipmentSearchButton" mnemonicParsing="false" onAction="#searchEquipment" text="Go" />
+                  <Button mnemonicParsing="false" onAction="#searchEquipment" text="Go" />
                </children>
             </HBox>
             <GridPane alignment="CENTER">

@@ -41,7 +41,7 @@ public class EquipmentDAO {
 
 
     //
-    // View Database Functions
+    // Select Statements
     //
 
 
@@ -100,7 +100,6 @@ public class EquipmentDAO {
     }
 
 
-
     //
     // Database Modify
     //
@@ -142,7 +141,4 @@ public class EquipmentDAO {
             throw e;
         }
     }
-
-
-
 }
