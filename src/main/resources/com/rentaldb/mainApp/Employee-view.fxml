@@ -29,7 +29,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="22.0">
                <children>
-                  <Button fx:id="showAllButton" mnemonicParsing="false" text="Show All" />
+                  <Button mnemonicParsing="false" onAction="#showAllEmployees" text="Show All" />
                </children>
                <opaqueInsets>
                   <Insets />

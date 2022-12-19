@@ -1,11 +1,15 @@
 package com.rentaldb.controller;
 
-import com.rentaldb.table.Employee;
+import com.rentaldb.table.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
+import java.sql.SQLException;
 
 public class EmployeeController {
 
@@ -79,6 +83,49 @@ public class EmployeeController {
     // Button functions
     //
 
+    @FXML
+    void showAllEmployees(ActionEvent event) throws SQLException, ClassNotFoundException {
+        try {
+            ObservableList<Employee> employeeData = EmployeeDAO.showAllEmployees();
+            populateEmployees(employeeData);
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e);
+            throw e;
+        }
+
+
+
+    }
+
+
+
+
+
+    //
+    // Util
+    //
+
+    private void populateEmployee (Employee employee) throws ClassNotFoundException{
+        //Declare and ObservableList for table view
+        ObservableList<Employee> employeeData = FXCollections.observableArrayList();
+        employeeData.add(employee);
+        employeeTable.setItems(employeeData);
+    }
+
+    // Shows a single employee
+    @FXML
+    private void populateAndShowEmployee(Employee employee) throws ClassNotFoundException {
+        if (employee != null) {
+            populateEmployee(employee);
+        } else {
+            // todo: add Label in Employee-view.fxml
+            System.out.println("This Employee Does not Exist");
+        }
+    }
+
+    private void populateEmployees (ObservableList<Employee> employeeData) throws ClassNotFoundException {
+        employeeTable.setItems(employeeData);
+    }
 
 
 
